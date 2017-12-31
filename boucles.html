@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<head>
+
+    <!-- en-tete du document -->
+
+    <title>Un exemple</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+</head>
+
+<body>
+
+    <script type="text/javascript">
+        /*console.log('\nTournez manège');
+                round = prompt('Combien de tours voulez-vous faire ?');
+                if(!isNaN(round)) {
+                    for (i = 1; i <= round; i++) {
+                        console.log('C\'est le tour numéro ' + i);
+                    }
+                } else {
+                    alert('Entrez un chiffre valide.')
+                }*/
+
+        /*console.log('\nNombres impairs');
+        initialNumber = prompt('Choisissez un chiffre entre 0 et 10');
+        if (initialNumber >= 0 && initialNumber <= 10) {
+            for (var i = initialNumber; i <= 10; i++) {
+                if (i % 2 === 0) {
+                    console.log(i + ' est pair');
+                } else {
+                    console.log(i + ' est impair');
+                }
+            }
+        } else {
+            alert('Attention ! Entrer un nombre entre 0 et 10')
+        }*/
+
+        /*console.log('\nControle de saisie');
+        message = 'Choissez un nombre entre 0 et 1000 pour sortir de cette boucle';
+        userNumber = prompt(message);
+        if(!isNaN(userNumber)) {
+            if(userNumber >= 0 && userNumber <= 1000) {
+                while(userNumber > 100) {
+                    userNumber = prompt(message);
+                }
+            } else {
+                alert('Attention ! Entrer un nombre entre 0 et 1000 !')
+            }
+        } else {
+            alert('Attention ! Entrer un nombre valide !');
+        }*/
+
+        /*console.log('\nTable de multiplication')
+        multiplicationTable = prompt('Choisissez votre table de multiplication (un chiffre ou un nombre)');
+        if(!isNaN(multiplicationTable)) {
+            console.log('Voici la table de multiplication de ' + multiplicationTable);
+            for (multiplier = 1; multiplier <= 10; multiplier++) {
+                console.log(multiplicationTable + ' x ' + multiplier + ' = ' + multiplicationTable * multiplier);
+            }
+        } else {
+            alert('Attention ! Vous devez entrer un chiffre ou un nombre valide.');
+        }*/
+
+        /*console.log('\nTriangle');
+        line = '';
+        var i = 1;
+        while(i <= 7) {
+            console.log(line = line + '#');
+            i++;
+        }*/
+
+        console.log('\nFizzBuzz');
+        for(var i = 1; i <= 100; i++) {
+            if(i % 3 === 0 && i % 5 !== 0) {
+                console.log('Fizz');
+            } else if(i % 3 === 0 && i % 5 === 0) {
+                console.log('FizzBuzz');
+            } else if(i % 3 !== 0 && i % 5 === 0) {
+                console.log('Buzz');
+            } else {
+                console.log(i);
+            }
+        }
+
+
+
+        /*console.log('Début du programme');
+        var number = 1;
+        while(number <= 5) {
+            console.log(number);
+            number++;
+        }
+        console.log('Fin du programme')
+
+        for (i = 1; i <= 5; i++) {
+            console.log(i);
+        }    */
+
+    </script>
+
+</body>
+
+</html>

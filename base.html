@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+<head>
+
+<!-- en-tete du document -->
+
+  <title>Un exemple</title>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+
+<body>
+
+    <script type="text/javascript">
+    var variable;//Ceci est la déclaration d'une variable
+    variable = '3.14';//Modification de la valeur de la variable, on utilise le point pour remplacer la virgule
+    var autreVariable = 'Merci pour toutes ces informations';//Initailisation d'une variable
+    </script>
+
+    <script type="text/javascript" src="js/scripts.js"></script><!--Appel un fichier externe lors du chargement de la page-->
+
+    <a href="#" onclick="alert('Bonjour !');">Lien</a>
+
+    <a href="javascript:alert('Bonjour !');">Lien</a> <!--Ne fais pas remonter le visiteur en haut de la page-->
+
+    <img src="img/test.jpg" onclick="alert('Pourquoi cliques-tu sur cette image ?!');" width="250" height="auto"/>
+
+    <!--
+    onclick : au clic (gauche) de la souris
+    ondblclick : lors d'un double clic
+    onmouseover : au passage de la souris
+    onmouseout : lorsque la souris "sort" de cet élément (en quelque sorte, le contraire de onmouseover).
+
+    Gestionnaires d'événements de la balise <body> :
+    onload : au chargement de la page
+    onunload : lorsqu'on quitte la page (ou qu'on change de page).
+    -->
+
+    <!--S'éxécute en fin de chargement de la page-->
+    <script type="text/javascript">
+        alert(autreVariable + ', vous pouvez commencer à explorer !');//Texte donné par la variable initialisé plus haut + concaténation
+    </script>
+
+</body>
+</html>
+
+<!--J'en étais à la concaténation-->

@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<head>
+
+    <!-- en-tete du document -->
+
+    <title>Un exemple</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+</head>
+
+<body>
+
+    <script type="text/javascript">
+        /*var stylo = {
+                    type: "bille",
+                    color: "bleu",
+                    brand: "Bic"
+                };
+
+                function Pencil() {
+                    //Une autre façon de consrtruire un objet
+                }
+
+                var myPencil = new Pencil();
+
+                console.log(stylo.type);
+                console.log(stylo.color);
+                console.log(stylo.brand);
+
+                //OU
+
+                stylo.color = 'rouge'; //Modification d'une propriété d'un objet
+                stylo.price = 5.99;
+
+                console.log(stylo['color']);
+                console.log(stylo.price);*/
+
+        //Objet Character principal
+        var Character = {
+
+            //Initié un personnage
+            initCharacter: function(name, health, strength) {
+                this.name = name;
+                this.health = health;
+                this.strength = strength;
+                this.goldCoins = 10;
+                this.keys = 1;
+            },
+
+            //attaque un personnage ciblé
+            attack: function(target) {
+                if (this.health > 0) {
+                    target.health -= this.strength;
+                    console.log(this.name + ' attaque ' + target.name + ' est lui fait ' + this.strength + ' dégâts !');
+                    if (target.health > 0) {
+                        console.log(target.name + ' a encore ' + target.health + ' points de vie');
+                    } else {
+                        target.health = 0;
+                        console.log(target.name + ' est mort !');
+                    }
+                } else {
+                    console.log(target.name + ' ne peut pas attaquer, il est mort...');
+                }
+            },
+
+        };
+
+        var Hero = Object.create(Character);
+        //Initié un héros
+        Hero.initHero = function(name, health, strength) {
+            this.initCharacter(name, health, strength);
+            this.xp = 0;
+        };
+
+        //Décrire un héros
+        Hero.getDescribe = function() {
+            var describe = this.name + " a " + this.health + " points de vie, " + this.strength + " en force et " + this.xp + " points d'expérience. Il a aussi dans son sac, " + this.keys + " clé(s) et " + this.goldCoins + " pièces d'or";
+            return describe;
+        };
+
+        //Le héros attaque un adversaire
+        Hero.fight = function(opponent) {
+            this.attack(opponent);
+            if(opponent.health === 0) {
+                this.xp += opponent.value;
+                this.goldCoins += opponent.goldCoins;
+                this.keys += opponent.goldCoins;
+                console.log(this.name + ' gagne ' + opponent.value + ' points d\'expérience, ainsi que ' + opponent.goldCoins + ' pièces d\'or et ' + opponent.keys + ' clé(s)');
+            }
+        };
+
+        var Opponent = Object.create(Character);
+        //Initié un adversaire
+        Opponent.initOpponent = function(name, health, strength, race) {
+            this.initCharacter(name, health, strength);
+            this.race = race;
+            this.value = strength + health;
+        };
+
+        //Création des deux héros
+        var fzool = Object.create(Hero);
+        fzool.initHero('Fzool', 100, 25);
+
+        var torlos = Object.create(Hero);
+        torlos.initHero('Torlos', 250, 50);
+
+        console.log('Bienvenue dans ce jeu d\'aventure ! Voici nos courageux héros :');
+        console.log(fzool.getDescribe());
+        console.log(torlos.getDescribe());
+
+        var karkas = Object.create(Opponent);
+        karkas.initOpponent('Karkas', 75, 50, 'gobelin');
+
+        console.log('Un affreux monstre arrive : c\'est un ' + karkas.race + ' nommé ' + karkas.name);
+
+        fzool.fight(karkas);
+        karkas.attack(fzool);
+        karkas.attack(torlos);
+        torlos.fight(karkas);
+        console.log(fzool.getDescribe());
+        console.log(torlos.getDescribe());
+
+    </script>
+
+</body>
+
+</html>

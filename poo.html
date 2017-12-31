@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<head>
+
+    <!-- en-tete du document -->
+
+    <title>Un exemple</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+</head>
+
+<body>
+
+    <script type="text/javascript">
+        //Début Chiens
+        /*var Chien = {
+            //Initier un chien
+            init : function(nom, race, taille) {
+                this.nom = nom;
+                this.race = race;
+                this.taille = taille;
+            },
+
+            //Aboyer
+            aboyer : function() {
+                if(this.taille >= 30) {
+                    return "Grrr ! Grrr !";
+                } else {
+                    return 'Kaii ! Kaii !';
+                }
+            },
+
+        }
+
+        var crokdur = Object.create(Chien);
+        crokdur.init("Crokdur", "mâtin de Naples", 75);
+        console.log(crokdur.nom + " est un " + crokdur.race + " mesurant " + crokdur.taille + " cm");
+        console.log("Tiens, un chat ! " + crokdur.nom + " aboie : " + crokdur.aboyer());
+
+        var pupuce = Object.create(Chien);
+        pupuce.init("Pupuce", "bichon", 22);
+        console.log(pupuce.nom + " est un " + pupuce.race + " mesurant " + pupuce.taille + " cm");
+        console.log("Tiens, un chat ! " + pupuce.nom + " aboie : " + pupuce.aboyer());*/
+        //Fin Chien
+
+        // TODO : ajoutez ici la définition des objets nécessaires
+        var CompteBancaire = {
+            initCB : function(titulaire, solde) {
+                this.titulaire = titulaire;
+                this.solde = solde;
+            },
+
+            decrire : function() {
+                return 'Titulaire : ' + this.titulaire + ', solde : ' + this.solde;
+            },
+
+            debiter : function(value) {
+                this.solde -= value;
+            },
+
+            crediter : function(value) {
+                this.solde += value;
+            },
+        };
+
+        var CompteEpargne = Object.create(CompteBancaire);
+        CompteEpargne.initCE = function(titulaire, solde, interet) {
+            this.initCB(titulaire, solde);
+            this.interet = interet;
+        };
+
+        CompteEpargne.ajouterInterets = function() {
+            this.solde += this.solde * this.interet;
+        };
+
+        var compte1 = Object.create(CompteBancaire);
+        compte1.initCB("Alex", 100);
+        var compte2 = Object.create(CompteEpargne);
+        compte2.initCE("Marco", 50, 0.05);
+
+        console.log("Voici l'état initial des comptes :");
+        console.log(compte1.decrire());
+        console.log(compte2.decrire());
+
+        var montant = Number(prompt("Entrez le montant à transférer entre les comptes :"));
+        compte1.debiter(montant);
+        compte2.crediter(montant);
+
+        // Calcule et ajoute les intérêts au solde du compte
+        compte2.ajouterInterets();
+
+        console.log("Voici l'état final des comptes après transfert et calcul des intérêts :");
+        console.log(compte1.decrire());
+        console.log(compte2.decrire());
+
+    </script>
+
+</body>
+
+</html>

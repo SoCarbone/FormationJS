@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<head>
+
+    <!-- en-tete du document -->
+
+    <title>Un exemple</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+</head>
+
+<body>
+
+    <script type="text/javascript">
+        var table = ["item1", 2, true];
+
+        console.log(table.length);
+        console.log(table[2]); //affiche true
+        console.log(table[0]); //affiche item1
+
+        table.forEach(function(item) {
+            console.log(item);
+        });
+
+        table.push('new_item');
+
+        console.log(table[3]);
+
+        var chineseSigns = {
+            init : function(year, sign) {
+                this.year = year;
+                this.sign = sign;
+            },
+
+            describe : function() {
+                return this.year + ' est le mois du ' + this.sign;
+            }
+        }
+
+        var y1980 = Object.create(chineseSigns);
+        y1980.init('1980', 'Singe');
+
+        var y1981 = Object.create(chineseSigns);
+        y1981.init('1981', 'Rat');
+
+        var y1982 = Object.create(chineseSigns);
+        y1982.init('1982', 'Chien');
+
+        var chineses_signs = [];
+        chineses_signs.push(y1980);
+        chineses_signs.push(y1981);
+        chineses_signs.push(y1982);
+
+        chineses_signs.forEach(function(year) {
+            console.log(year.describe());
+        });
+
+        var musketeers = ['Atos', 'Portos', 'Aramis'];
+
+        for(i = 0; i < musketeers.length; i++) {
+            console.log(musketeers[i]);
+        }
+
+        musketeers.push('Dartagnan');
+
+        musketeers.forEach(function (musketeer) {
+            console.log(musketeer);
+        });
+
+        var values = [12, 23, 5, 42, 78];
+        var sum = 0;
+        for(i = 0; i < values.length; i++) {
+            sum += values[i];
+        }
+        console.log(sum);
+
+        var max = 0;
+        values.forEach(function(value) {
+           if(value > max) {
+               max = value;
+           }
+        });
+        console.log(max);
+
+        var words = [];
+        var word = '';
+        while(word !== 'stop') {
+            word = prompt('Trouver le bon mot pour arrêter la boucle');
+            words.push(word);
+        }
+        words.forEach(function(word) {
+           console.log(word);
+        });
+
+    </script>
+
+</body>
+
+</html>

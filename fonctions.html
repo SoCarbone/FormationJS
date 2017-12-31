@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<head>
+
+    <!-- en-tete du document -->
+
+    <title>Un exemple</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+</head>
+
+<body>
+
+    <script type="text/javascript">
+        var message = 'Je suis une chaine de caractères lambda'
+
+        //console.log(message.length); //Propriété longueur d'une chaine
+        //console.log(message.toLowerCase()); //Méthodes
+        //console.log(message.toUpperCase());
+        //console.log(message[5]); //Trouver un caractère grâce à son indice
+        //console.log(message.charAt(5)); //idem
+
+
+
+        //Compter les consonnes et les voyelles
+        function countConsonantsVowels(sentence) {
+            var sentenceLenght = sentence.length;
+            var consonantTotal = 0; //Compteur de consonnes
+            var vowelsTotal = 0; //Compteur de voyelles
+
+            for (var indiceLetter = 0; indiceLetter <= sentenceLenght - 1; indiceLetter++) {
+                switch (sentence[indiceLetter]) {
+                    case 'a':
+                    case 'e':
+                    case 'i':
+                    case 'o':
+                    case 'u':
+                    case 'y':
+                    case 'é':
+                    case 'è':
+                    case 'ê':
+                    case 'à':
+                    case 'ù':
+                        vowelsTotal++;
+                        break;
+                    case ' ':
+                        break;
+                    default:
+                        consonantTotal++;
+                }
+            }
+
+            return 'La phrase : "' + sentence + '" contient ' + consonantTotal + ' consonnes et ' + vowelsTotal + ' voyelles.';
+        }
+
+        //Ecrire la phrase à l'envers
+        function reverseSentence(sentence) {
+            var sentenceLength = sentence.length;
+            var reversedSentence = '';
+
+            for(var indiceLetter = sentenceLength - 1; indiceLetter >= 0; indiceLetter--) {
+                reversedSentence += sentence[indiceLetter];
+            }
+
+            return reversedSentence;
+        }
+
+        //Ecrire en leatspeak
+        function checkLetter(letter) {
+            switch(letter) {
+                case 'a':
+                case 'A':
+                    return '4';
+                    break;
+                case 'b':
+                case 'B':
+                    return '8';
+                    break
+                case 'e':
+                case 'E':
+                    return '3';
+                    break;
+                case 'l':
+                case 'L':
+                    return '1';
+                    break;
+                case 'o':
+                case 'O':
+                    return '0';
+                    break;
+                case 's':
+                case 'S':
+                    return '5';
+                    break;
+                default:
+                    return letter;
+                    break;
+            }
+        }
+
+        function leatspeakTranslate(sentence) {
+            var leatspeakSentence = '';
+            var i = 0;
+
+            while(i <= sentence.length - 1) {
+                leatspeakSentence += checkLetter(sentence[i]);
+                i++;
+            }
+
+            return leatspeakSentence;
+        }
+
+        console.log(countConsonantsVowels(message));
+        console.log('Ecrite à l\'envers cela donne : ' + reverseSentence(message));
+
+        //Vérifier si c'est un palidrome
+        if(reverseSentence(message).toLowerCase() === message.toLowerCase()) {
+            console.log('Cette phrase est un palidrome !');
+        } else {
+            console.log('Cette phrase n\'est pas un palindrome');
+        }
+
+        console.log('Ecrite en leatspeak cela donne : ' + leatspeakTranslate(message));
+
+    </script>
+
+</body>
+
+</html>

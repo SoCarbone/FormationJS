@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+<head>
+
+<!-- en-tete du document -->
+
+  <title>Un exemple</title>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+
+<body>
+
+    <script type="text/javascript">
+        var nombre1 = prompt('Choisissez un nombre :');
+        var nombre2 = prompt('Choississez un deuxième nombre :');
+        var resultat = parseFloat(nombre1) / parseFloat(nombre2); //parseFloat convertit en décimal, parseInt convertit en entier (Voir les règles plus bas)
+
+        alert( nombre1 + ' divisé par ' + nombre2 + ' est égal à ' + resultat )
+    </script>
+
+</body>
+</html>
+
+<!--
+parseInt("12.9 Euros") vaudra 12 (on convertit en entiers, les chiffres après la virgule sont ignorés)
+parseInt(" 12 Frs ") vaudra également 12 (l'espace en début de chaîne est ignoré)
+parseInt("J'ai 12 Euros") vaudra Nan (la chaîne commence par une lettre)
+parseFloat(" 12.9 Frs ") vaudra 12.9
+parseFloat("3,14") vaudra... 3 : il faut utiliser le point et non la virgule. La conversion va donc s'arrêter après le "3".
+-->
+
+<!--J'en étais à la concaténation-->
